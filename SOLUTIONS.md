@@ -24,6 +24,7 @@ IDENTIQUE AU TODO 1
 ### Nature du problème 
 Certaines pages ne s'affichent pas correctement.
 ### Solution technique 
+Le problème avait déjà été résolu
 ### Concept Angular utilisé
 
 ## TODO 5 
@@ -91,6 +92,7 @@ Ajout d'une directive dans le template book-detail.component.html. Il faut veill
 ### Nature du problème
 Problème de fonctionnement sur un bouton
 ### Solution technique
+Bouton déjà corrigé
 ### Concept Angular utilisé
 
 ## TODO 13
