@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/book.model';
 import { Router } from '@angular/router';
+import { HighlightDirective } from '../../directives/highlight.directive';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, FormsModule, HighlightDirective, TruncatePipe],
   templateUrl: './book-list.component.html',
 })
 export class BookListComponent implements OnInit {
@@ -41,6 +43,7 @@ export class BookListComponent implements OnInit {
     this.bookService.toggleFavorite(book.id).subscribe({
       next: (updatedBook: Book) => {
         // TODO 16: Affiche une alerte qui indique que le favori a été modifié
+        console.log('Favori modifié:', updatedBook);
       },
       error: (err: any) => {
         // TODO 17: Affiche une alerte qui indique que la modification du favori a échoué
