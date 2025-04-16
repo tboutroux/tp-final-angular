@@ -1,4 +1,4 @@
-import { FormatTitlePipe } from './format-title.pipe';
+import { FormatTitlePipe } from './format-pipe.pipe';
 
 describe('FormatTitlePipe', () => {
   it('create an instance', () => {

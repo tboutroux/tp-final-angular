@@ -17,7 +17,7 @@
            Il faut utiliser un pipe existant ou en créer un nouveau pipe. Libre choix -->
           {{ book.description | truncate: 20 }}
         </p>
-        <p>Catégorie: {{ book.category }}</p>
+        <p>Catégorie: {{ book.category | formatPipe }}</p>
         <p>Note: {{ book.rating }}</p>
         <p>Favori: {{ book.isFavorite ? 'Oui' : 'Non' }}</p>
       </div>

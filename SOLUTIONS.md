@@ -10,24 +10,31 @@ Ajout d'une directive `[routerLink]` dans les balises `<a>`
 
 ## TODO 2 : Besoin de formatage de texte
 ### Nature du problème 
-Les titres des livres ne sont pas affichées correctement
+Les catégories des livres ne sont pas affichées correctement
 ### Solution technique
-Création d'un pipe permettant de formatter correctement les titres des livres
+Création d'un pipe permettant de formatter correctement les catégories des livres
 ### Concept Angular utilisé
 - Pipe
 
-## TODO 3
-IDENTIQUE AU TODO 1
+## TODO 3: Structure de page incomplète
+### Nature du problème 
+L'application manque de modularité et de réutilisation de code.
+### Solution technique 
+Extraction des éléments appartenant au header et au footer afin de les transformer en composant réutilisables `HeaderComponent` et `FooterComponent`. Ces derniers sont utilisés dans le template `app.component.html`
+### Concepts Angular utilisés
+- Templates
+- Composants
 
-## TODO 4
+## TODO 4: Pages non affichées
 
 ### Nature du problème 
 Certaines pages ne s'affichent pas correctement.
 ### Solution technique 
-Le problème avait déjà été résolu
+Vérification des routes dans le fichier ``app.routes.ts`` afin d'assurer le bon import des différentes routes de l'application. 
 ### Concept Angular utilisé
+- Routing
 
-## TODO 5 
+## TODO 5: Route manquante
 ### Nature du problème
 Créer une route pour la page détail d'un livre
 ### Solution technique 
@@ -35,8 +42,9 @@ Ajout d'une route dans le fichier `app.routes.ts` pour naviguer vers la page de 
 ### Concept Angular utilisé
 - RouterModule pour la configuration des routes.
 - Composant de détail du livre pour afficher les informations du livre.
+- Paramètre de route (id du livre)
 
-## TODO 6
+## TODO 6: Formulaire incomplet
 ### Nature du problème
 Un formulaire doit être créé pour permettre la saisie des informations d’un livre, incluant les champs title, author, description et category. Il doit également inclure une validation des données saisies.
 ### Solution technique
@@ -49,7 +57,7 @@ L’implémentation repose sur Reactive Forms d’Angular en utilisant FormBuild
 - Gestion d’événements (ngSubmit) pour soumettre le formulaire et traiter les données.
 
 
-## TODO 7
+## TODO 7: Validations manquantes
 ### Nature du problème
 Les champs du formulaire ne possèdent pas les validations nécessaires pour garantir l'intégrité des données saisies par l'utilisateur.
 ### Solution technique
@@ -60,9 +68,8 @@ Ajouter des validations pour chaque champ du formulaire en utilisant les directi
 - `category` : requis.
 ### Concept Angular utilisé
 Utilisation des directives de validation Angular telles que `required` et `minlength` pour imposer des contraintes sur les champs du formulaire.
--->
 
-## TODO 8
+## TODO 8: Navigation manquante
 ### Nature du problème
 Créer un bouton qui permet de revenir à la page précédente
 ### Solution technique
@@ -70,117 +77,70 @@ Ajout d'une redirection vers la page précédente stockée dans l'historique du 
 ### Concept Angular utilisé
 - Utilisation du service `Location` de `@angular/common` afin de naviguer dans l'historique du navigateur.
 
-## TODO 9
+## TODO 9: Erreur dans la console
 ### Nature du problème
-Erreur dans le navigateur 
+Erreur "Cannot read properties of undefined" dans la console, ce qui peut entraîner un plantage de l'application lorsque les données ne sont pas chargées.
 ### Solution technique
-Vérification que l'objet book est bien défini avant de tenter d'accéder à ses propriétés.
+Utilisation d'un `ngIf` dans le template ``book-detail.component.html`` pour vérifier l'existence des données avant de les afficher.
 ### Concept Angular utilisé
-- Utilisation de l'opérateur `?` afin de vérifier si les propriétés sont undefined.
+- Directive
+- Gestion asynchrone de l'affichage
 
-## TODO 10
+## TODO 10: Directive non appliquée
 ### Nature du problème
-Appliquer la directive highlight au champ `book.title` du composant `book-detail.component.html`
+Certains éléments ne sont pas mis en évidence comme prévu, ce qui dégrade l'expérience utilisateur en manquant d'indications visuelles.
 ### Solution technique
-Ajout d'une directive dans le template book-detail.component.html. Il faut veiller à l'importer en amont dans le composant TypeScript.
+Application de la directive ``highlight`` au champ `book.title` du composant `book-detail.component.html`
 ### Concept Angular utilisé
 - Directive personnalisée
-- Importation et déclaration de la directive
-- Utilisation de la directive dans le template HTML.
+- Templates
 
-## TODO 12
+## TODO 11: Bouton non fonctionnel
 ### Nature du problème
-Problème de fonctionnement sur un bouton
+Certains boutons ne réagissent pas aux clics, empêchant les actions d'être effectuées.
 ### Solution technique
-Bouton déjà corrigé
+Vérification de la méthode `goBack()` pour vérifier que la redirection fonctionne correctement lors de l'évènement `click()`
 ### Concept Angular utilisé
+- Gestion des évènement
+- Navigation
 
-## TODO 13
+## TODO 12: Données non affichées
 ### Nature du problème
 Les données sont passées à la liste mais pas affichées. Affiche les données
 ### Solution technique
 Changement de nom de variable dans le template. il faut afficher les livres qui sont dans une variable `books`, hors celle utilisée était `data`
 ### Concept Angular utilisé
-- NgIf
+- NgFor
 
-## TODO 14
+## TODO 13: Descriptions trop longues
 ### Nature du problème
-Appliquer la directive highlight au champ `book.title` du composant `book-list.component.html`
-### Solution technique
-Ajout d'une directive dans le template book-detail.component.html. Il faut veiller à l'importer en amont dans le composant TypeScript.
-### Concept Angular utilisé
-- Directive personnalisée
-- Importation et déclaration de la directive
-- Utilisation de la directive dans le template HTML.
-
-## TODO 15
-### Nature du problème
-Afficher la description du livre en utilisant un pour limiter à 20 caractères et ajouter des points de suspension si la description est plus longue
+Les descriptions des livres prennent trop de place, ce qui encombre l'interface utilisateur et la rend moins lisible.
 ### Solution technique
 Création d'un pipe permettant de tronquer la description
 ### Concept Angular utilisé
 - Pipe personnalisé
 
-## TODO 16
+## TODO 14: Retour utilisateur manquant
 ### Nature du problème
-Affiche une alerte qui indique que le favori a été modifié
+Aucune confirmation n'est affichée après certaines actions, ce qui empêche l'utilisateur de savoir si son action a réussi ou échoué.
 ### Solution technique
-Affichage d'un message dans la console permettant d'informer qu'un livre a été ajouté ou enlevé des favoris
+Affichage d'une SnackBar Angular Material pour afficher les notification lors des modifications de favoris et de la suppression d'un livre.
 ### Concept Angular utilisé
-- `console.log()`
+- Gestion des évènements
+- Utilisation d'Angular Material
 
-## TODO 17
+## TODO 15: Erreur d'affichage du titre
 ### Nature du problème
-Affiche une alerte qui indique que la modification du favori a échoué
+Les titres ne s'affichent pas correctement, ce qui rend l'information présentée incorrecte ou mal formatée.
 ### Solution technique
-Affichage d'un message d'erreur dans la console
-### Concept Angular utilisé
-- `console.error()`
-
-## TODO 18
-### Nature du problème
-Affiche une alerte qui indique que le livre a été supprimé
-### Solution technique
-Affichage d'un message dans la console permettant d'informer qu'un livre a été supprimé
-### Concept Angular utilisé
-- `console.log()`
-
-## TODO 19
-### Nature du problème
-Affiche une alerte qui indique que la suppression du livre a échoué
-### Solution technique
-Affichage d'un message d'erreur dans la console
-### Concept Angular utilisé
-- `console.error()`
-
-## TODO 20
-### Nature du problème
-Identifie et corrige l'erreur & affiche le titre en uppercase
-### Solution technique
-Ajout d'une balise HTML et utilisation d'un Pipe natif Angular permettant de mettre le titre en majuscule
+Ajout d'une balise HTML et utilisation d'un Pipe natif Angular permettant de mettre le titre en majuscule (`uppercase`)
 ### Concept Angular utilisé
 - Pipe
 
-## TODO 22
+## TODO 16: Directive incomplète
 ### Nature du problème
-Creer un component pour afficher le header
+La directive highlight ne fonctionne pas comme prévu, ce qui dégrade l'expérience utilisateur en manquant d'indications visuelles.
 ### Solution technique
-Création d'un nouveau composant Angular, déplacement des différents morceaux de code et import du nouveau composant dans `app.component.html`
-### Concept Angular utilisé
-- Composant
-
-## TODO 23
-### Nature du problème
-Creer un component pour afficher le footer
-### Solution technique
-Création d'un nouveau composant Angular, déplacement des différents morceaux de code et import du nouveau composant dans `app.component.html`
-### Concept Angular utilisé
-- Composant
-
-## TODO 24
-### Nature du problème
-Modifier la directive pour que le texte soit en gras si l'input est true et appliquer cela au champ title du livre sur les pages book-detail et book-list
-### Solution technique
-Ajout d'une condition dans la directive afin de changer la font-weight d'un texte en fonction de la valeur de l'input
+Ajout d'une condition dans la directive `highlight` afin de changer la font-weight d'un texte en fonction de la valeur de l'input (``true`` ou ``false``)
 ### Concept Angular utilisé
 - Directive personnalisée
