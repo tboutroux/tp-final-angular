@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { FormatTitlePipe } from '../../pipes/format-title.pipe';
+import { RouterLink } from '@angular/router';
+import { FormatPipe } from '../../pipes/format-pipe.pipe';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink, RouterOutlet, FormatTitlePipe],
+  imports: [RouterLink, FormatPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

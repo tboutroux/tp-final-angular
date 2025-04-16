@@ -1,11 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'formatTitle'
+  name: 'formatPipe'
 })
-export class FormatTitlePipe implements PipeTransform {
+export class FormatPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
+  transform(value: unknown): unknown {
     
     if (typeof value !== 'string') {
       return value;
